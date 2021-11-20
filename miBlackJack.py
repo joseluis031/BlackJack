@@ -25,20 +25,15 @@ for carta in sorted(cartas.keys()): #para que me salgan los valores segun el ord
     print("la carta {} vale {}".format(carta, cartas[carta]))
 
 print("Comienza Black Jack:")
-print("3\ Black Jack")
-lista_cartas = list(cartas) #para que me cree una lista de mi lista
 
-print("Ha seleccionado:", end=" ") #end para que cierre el diccionario, para que solo pueda seleccionar 1 carta
-carta = choice(lista_cartas) #choice de la carta que he seleccionado de la lista de cartas
-score = cartas[carta] #score para saber el valor de la carta que me ha dicho de la lista de las cartas
-print(carta, end=" ") 
-carta = choice(lista_cartas)
-score += cartas[carta] #sumar al anterior cartas[carta] el siguiente
-print(carta, end=" ")
-print(" >>> su puntuación es de", score)
+listas_cartas = list(cartas)
 
-main_banca = sample(lista_cartas, 2) #el sample baraja
-score_banca = sum(cartas[carta] for carta in main_banca)
-print("La banca tiene: {} {}  >> su score es {}".format(main_banca[0],
-                                                          main_banca[1],
-                                                          score_banca))
+def cartas_jugador():
+    tus_cartas = sample(listas_cartas)
+    tus_puntos = sum(cartas[carta] for carta in tus_cartas)
+    print ("Tus cartas son: {} y {}  y tus puntos son: {}".format(tus_cartas[0],tus_cartas[1], tus_puntos))
+
+def cartas_crupier():
+    sus_cartas = sample(listas_cartas)
+    sus_puntos = sum(cartas[carta] for carta in sus_cartas)
+    print ("Las cartas del crupier son: {} y {} y sus puntos son: {}".format(sus_cartas[0], sus_cartas[1], sus_puntos))
