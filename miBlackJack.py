@@ -26,14 +26,37 @@ for carta in sorted(cartas.keys()): #para que me salgan los valores segun el ord
 
 print("Comienza Black Jack:")
 
-listas_cartas = list(cartas)
+lista_cartas = list(cartas)
 
-def cartas_jugador():
-    tus_cartas = sample(listas_cartas)
-    tus_puntos = sum(cartas[carta] for carta in tus_cartas)
-    print ("Tus cartas son: {} y {}  y tus puntos son: {}".format(tus_cartas[0],tus_cartas[1], tus_puntos))
 
-def cartas_crupier():
-    sus_cartas = sample(listas_cartas)
-    sus_puntos = sum(cartas[carta] for carta in sus_cartas)
-    print ("Las cartas del crupier son: {} y {} y sus puntos son: {}".format(sus_cartas[0], sus_cartas[1], sus_puntos))
+print("Tus cartas son:", end=" ") #end para que cierre el diccionario, para que solo pueda seleccionar 1 carta
+carta = choice(lista_cartas) #choice de la carta que he seleccionado de la lista de cartas
+tus_puntos = cartas[carta] #score para saber el valor de la carta que me ha dicho de la lista de las cartas
+print(carta, end=" ") 
+carta = choice(lista_cartas)
+tus_puntos += cartas[carta] #sumar al anterior cartas[carta] el siguiente
+print(carta, end=" ")
+print("y tus puntos son:", tus_puntos)
+
+sus_cartas = sample(lista_cartas, 2)
+sus_puntos = sum(cartas[carta] for carta in sus_cartas)
+print ("Las cartas del crupier son: {} y {} y sus puntos son: {}".format(sus_cartas[0], sus_cartas[1], sus_puntos))
+
+while True:
+    x = tus_puntos
+    y = sus_puntos
+    if x <= 21 and y <= 21:
+        if x < y:
+            if x < 21 and y == 21:
+                print ("El crupier tiene BlackJack, has perdido")
+            else:
+                print ("El crupier se ha acercado mas a 21, has perdido")
+            break
+        elif x > y:
+            if x == 21 and y < 21:
+                print ("Tienes BlackJack, Has ganado!!")
+            else:
+                print("Tu puntuacion ha sido mayor, Has ganado!!")
+            break
+        else:
+            print("Ha habido empate, se devuelven las fichas")
