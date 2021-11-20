@@ -49,14 +49,17 @@ while True:
         if x < y:
             if x < 21 and y == 21:
                 print ("El crupier tiene BlackJack, has perdido")
+                break
             else:
                 print ("El crupier se ha acercado mas a 21, has perdido")
             break
         elif x > y:
             if x == 21 and y < 21:
                 print ("Tienes BlackJack, Has ganado!!")
+                break
             else:
                 print("Tu puntuacion ha sido mayor, Has ganado!!")
             break
         else:
             print("Ha habido empate, se devuelven las fichas")
+            break
