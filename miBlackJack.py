@@ -1,4 +1,4 @@
-from random import choice, sample #choice and sample son lo que voy a utilizar de la libreria random
+from random import choice, sample #choice(elegir) and sample(para barajar) son lo que voy a utilizar de la libreria random
 cartas = {chr(0x1f0a1): 11, #Este es el diccionario
     chr(0x1f0a2): 2,
     chr(0x1f0a3): 3,
@@ -37,11 +37,8 @@ score += cartas[carta] #sumar al anterior cartas[carta] el siguiente
 print(carta, end=" ")
 print(" >>> su puntuación es de", score)
 
-main_banca = sample(lista_cartas, 2)
+main_banca = sample(lista_cartas, 2) #el sample baraja
 score_banca = sum(cartas[carta] for carta in main_banca)
 print("La banca tiene: {} {}  >> su score es {}".format(main_banca[0],
                                                           main_banca[1],
                                                           score_banca))
-
-
-
