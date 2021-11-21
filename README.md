@@ -1,6 +1,6 @@
 # BlackJack
 Dirección de GitHub para este repositorio: [GitHub](https://github.com/joseluis031/BlackJack.git)
-Hemos terminado el "BlackJack" nivel principiante
+Hemos terminado el "BlackJack" nivel principiante, falta establecer un bucle para cuando la suma sea mayor que 21 pero no he sido capaz de conseguir que sume +21
 
 
 El diagrama de flujo es el siguiente:
